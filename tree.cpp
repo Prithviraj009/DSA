@@ -78,9 +78,32 @@ public:
     // Recur on right subtree
     printPreorder(root->right);
 }
+
+
+	void printPostorder (Node *root)
+{
+    if (root == NULL)
+        return;
+
+    // Recur on left subtree
+    printPostorder(root->left);
+
+    // Recur on right subtree
+    printPostorder(root->right);
+
+    // Deal with the node
+    cout << root->data << " ";
+}
+
+
+	
 	void Preorder()
 {
    printPreorder(root);
+}
+void Postorder()
+{  
+   printPostorder(root);
 }
 
 };
