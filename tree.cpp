@@ -112,7 +112,7 @@ void printInorder(Node *root)
     // Recur on right subtree
     printInorder(root->right);
 }
-
+// inorder traversal using stack
 void InorderStack()
 {
     Node *temp=root;
@@ -129,7 +129,7 @@ void InorderStack()
     }
 }
 
-//leve order using queue not getting output
+//level order using queue not getting output
 int levelOrder(int X)
 {
     for(int i=0;i<q.size();i++)
