@@ -130,7 +130,7 @@ void InorderStack()
 }
 
 //level order using queue not getting output
-int levelOrder(int X)
+/*int levelOrder(int X)
 {
     for(int i=0;i<q.size();i++)
     {
@@ -152,7 +152,7 @@ int levelOrder(int X)
         }   
             level++;
     }
-l}
+}*/
 
 void Preorder()
 {
