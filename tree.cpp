@@ -100,13 +100,13 @@ void printInorder(Node *root)
     if (root == NULL)
         return;
     // Recur on left subtree
-    printPreorder(root->left);
+    printInorder(root->left);
 	
     // Deal with the node
     cout << root->data << " ";
 
     // Recur on right subtree
-    printPreorder(root->right);
+    printInorder(root->right);
 }
 
 	
@@ -134,6 +134,12 @@ int main()
 	t1.insert(9);
 	t1.insert(4);
 	t1.insert(10);
+	cout <<"preorder" <<endl;
 	t1.Preorder();
-
+	cout <<endl;
+	cout <<"Inorder" <<endl;
+    t1.Inorder();
+    cout <<endl;
+    cout <<"postorder" <<endl;
+    t1.Postorder();
 }
