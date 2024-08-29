@@ -64,7 +64,7 @@ public:
 		}
 	}
 	
-	void printPreorder(Node *root)
+void printPreorder(Node *root)
 {
     if (root == NULL)
         return;
@@ -80,7 +80,7 @@ public:
 }
 
 
-	void printPostorder (Node *root)
+void printPostorder (Node *root)
 {
     if (root == NULL)
         return;
@@ -95,15 +95,32 @@ public:
     cout << root->data << " ";
 }
 
+void printInorder(Node *root)
+{
+    if (root == NULL)
+        return;
+    // Recur on left subtree
+    printPreorder(root->left);
+	
+    // Deal with the node
+    cout << root->data << " ";
+
+    // Recur on right subtree
+    printPreorder(root->right);
+}
 
 	
-	void Preorder()
+void Preorder()
 {
    printPreorder(root);
 }
 void Postorder()
 {  
    printPostorder(root);
+}
+void Inorder()
+{
+   printInorder(root);
 }
 
 };
