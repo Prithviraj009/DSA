@@ -1,4 +1,6 @@
 #include<iostream>
+#include<stack>
+#include<queue>
 using namespace std;
 class CompleteBinaryTree;
 class Node {
@@ -19,7 +21,9 @@ public :
 class CompleteBinaryTree {
 public:
 	Node *root;
-
+    stack <Node *>S;
+    queue <Node *> q;
+    int level=0;
 	// Constructor to initialize the tree
 	CompleteBinaryTree() {
 		root = NULL;
@@ -109,7 +113,47 @@ void printInorder(Node *root)
     printInorder(root->right);
 }
 
-	
+void InorderStack()
+{
+    Node *temp=root;
+     while(temp!=NULL || !S.empty())
+    {
+       while(temp!=NULL)
+        { S.push(temp);
+           temp=temp->left;
+        }
+           temp=S.top();
+           S.pop();
+           cout <<temp->data <<" ";
+           temp=temp->right;
+    }
+}
+
+//leve order using queue not getting output
+int levelOrder(int X)
+{
+    for(int i=0;i<q.size();i++)
+    {
+        if(root==NULL)
+        return 0;
+        q.push(root);
+        while(!q.empty())
+        {   
+            Node *current = q.front();
+            if(current->data==X)
+            return level;
+            cout <<current->data << " ";
+            if(current->left!=NULL)
+            q.push(current->left);
+            if(current->right!=NULL)
+            q.push(current->right);
+            q.pop();
+        
+        }   
+            level++;
+    }
+l}
+
 void Preorder()
 {
    printPreorder(root);
@@ -142,4 +186,13 @@ int main()
     cout <<endl;
     cout <<"postorder" <<endl;
     t1.Postorder();
+    cout <<"Inorder using stack" <<endl;
+    t1.InorderStack();
+    cout <<"level order using queue" << endl;
+    t1.levelOrder(10);
+    
 }
+
+
+
+
