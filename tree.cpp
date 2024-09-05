@@ -67,6 +67,23 @@ public:
 			return;
 		}
 	}
+// Method to insert binary tree 
+void BST(Node *current, Node *newNode) {
+		if(newNode->data>current->data)
+		{
+			if(current->right== NULL)
+				current->right=newNode;
+			else
+				insertNode(current->right,newNode);
+		}
+		if(newNode->data<current->data)
+		{
+			if(current->left== NULL)
+				current->left=newNode;
+			else
+				insertNode(root->left,newNode);
+		}
+	}
 	
 void printPreorder(Node *root)
 {
