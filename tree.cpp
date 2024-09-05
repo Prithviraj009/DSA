@@ -130,30 +130,26 @@ void InorderStack()
 }
 
 //level order using queue not getting output
-/*int levelOrder(int X)
+void printLevelOrder(Node *root)
 {
-    for(int i=0;i<q.size();i++)
-    {
-        if(root==NULL)
-        return 0;
-        q.push(root);
-        while(!q.empty())
-        {   
-            Node *current = q.front();
-            if(current->data==X)
-            return level;
-            cout <<current->data << " ";
-            if(current->left!=NULL)
-            q.push(current->left);
-            if(current->right!=NULL)
-            q.push(current->right);
-            q.pop();
-        
-        }   
-            level++;
-    }
-}*/
-
+	if(root==NULL) return;
+	queue<Node *> Q;
+	Q.push(root);
+	while(!Q.empty())
+	{
+		Node *current=Q.front();
+		cout<<current->data;
+		if(current->left!=NULL)
+		Q.push(current->left);
+		if(current->right!=NULL)
+		Q.push(current->right);
+		Q.pop();
+	}
+}
+void LevelOrder()
+{
+   printLevelOrder();
+}
 void Preorder()
 {
    printPreorder(root);
@@ -189,8 +185,7 @@ int main()
     cout <<"Inorder using stack" <<endl;
     t1.InorderStack();
     cout <<"level order using queue" << endl;
-    t1.levelOrder(10);
-    
+    t1.LevelOrder(10);    
 }
 
 
