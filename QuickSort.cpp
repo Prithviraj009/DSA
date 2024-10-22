@@ -14,23 +14,25 @@ void QuickSort(int a[], int low, int high) {
     if (low < high) {
         pivot = a[low];
         i = low;
-        j = high;
+        j = high+1;
 
         do {
-            while (a[i] < pivot) i++;
-            while (a[j] > pivot) j--;
+            do{i++;}while (a[i] < pivot);
+            do{j--;}while (a[j] > pivot);
 
-            if (i <= j) {
+            if (i <j) {
                 swap(a, i, j);
-                i++;
-                j--;
+                
             }
-        } while (i <= j);
+        } while (i <j);
+    if(i>j)
+    {
+        swap(a,low,j);
+    }
 
-        if (low < j)
-            QuickSort(a, low, j);
-        if (i < high)
-            QuickSort(a, i, high);
+            QuickSort(a, low, j-1);
+ 
+            QuickSort(a, j+1, high);
     }
 }
 
